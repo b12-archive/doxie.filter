@@ -18,4 +18,3 @@ export default
     isFunction,
     filterCurried,
     throwError('Filter expected a function'));
-
