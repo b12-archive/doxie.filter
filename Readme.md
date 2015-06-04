@@ -36,16 +36,55 @@ Installation
 ------------
 
 ```sh
-$ npm install …
+$ npm install doxie doxie.filter
 ```
 
 
 
 
-Usage
------
+CLI Usage
+---------
 
-…
+Pass the option `--filter` to `doxie` to put the plugin in your pipeline. By default it will import the [transform function][] from `$(pwd)/.doxie.filter.js` to pipe data through:
+
+```sh
+$ dox | doxie --filter
+```
+
+You can also specify a custom file from which the [transform function][] should be imported:
+
+```sh
+$ dox | doxie --filter ./build/my-custom-filter.js
+```
+
+
+
+
+Programmatic usage
+------------------
+
+Pass the [transform function][] directly as a parameter:
+
+```js
+const doxie = require('doxie-core');
+const filter = require('doxie.filter');
+const myDoxData = {/* … */};
+
+doxie([
+  filter(({data}) => !data.isPrivate),
+])(myDoxData);
+```
+
+
+
+
+[transform function]:  #transform-function
+
+<a                                                  id="transform-function"></a>
+The transform function
+----------------------
+
+*Work in progress…*
 
 
 
