@@ -30,7 +30,7 @@ test('Programmatic API:  Pipes data through', (is) => {
 
   is.deepEqual(
     filter(always('truthy'))(input),
-    [],
+    input,
     'casting non-boolean return values'
   );
 
