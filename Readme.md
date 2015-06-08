@@ -10,8 +10,8 @@
  [![Code style: airbnb
 ](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)
 ](https://github.com/airbnb/javascript)
- [![Stability: experimental
-](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)
+ [![Stability: unstable
+](https://img.shields.io/badge/stability-unstable-yellowgreen.svg?style=flat-square)
 ](https://nodejs.org/api/documentation.html#documentation_stability_index)
 
 
@@ -20,14 +20,10 @@
 doxie.filter
 ============
 
-**A plugin for [*doxie*][]. Filter comments through a custom function.**
+A plugin for [*doxie*][].  
+**Filter comments through a custom function.**
 
 [*doxie*]:  https://github.com/studio-b12/doxie
-
-
-**⚠ Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
-
-[Thoughts and ideas]:  https://github.com/studio-b12/doxie.filter/issues
 
 
 
