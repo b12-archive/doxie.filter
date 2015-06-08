@@ -1,6 +1,6 @@
 const isFunction = require('1-liners/isFunction');
 const filter = require('1-liners/filter');
-const error = require('tiny-error')({prefix: '[doxie.filter]\n'});
+const error = require('tiny-error')({prefix: '[doxie.filter] '});
 
 export default (transformFunction) => {
   if (!isFunction(transformFunction)) throw error(
