@@ -4,6 +4,7 @@
 
 , "dependencies":
   { "1-liners": "^0.2.10"
+  , "tiny-error": "^0.2.1"
   }
 
 , "scripts":

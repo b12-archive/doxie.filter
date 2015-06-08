@@ -1,17 +1,17 @@
-const ifElse = require('1-liners/ifElse');
 const isFunction = require('1-liners/isFunction');
 const filter = require('1-liners/filter');
+const error = require('tiny-error')({prefix: '[doxie.filter]\n'});
 
-const throwError = (msg) => () => { throw new Error(msg); };
+export default (transformFunction) => {
+  if (!isFunction(transformFunction)) throw error(
+    'Wrong value of `transformFunction`. We expected a function'
+  );
 
-const filterCurried = (filterFn) => ifElse(
-  Array.isArray,
-  (arr) => filter(filterFn, arr),
-  throwError('Filter expected an array')
-);
+  return (data) => {
+    if (!Array.isArray(data)) throw error(
+      'Wrong value of `data`. We expected an array'
+    );
 
-export default ifElse(
-  isFunction,
-  filterCurried,
-  throwError('Filter expected a function')
-);
+    return filter(transformFunction, data);
+  };
+};
