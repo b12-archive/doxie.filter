@@ -1,9 +1,7 @@
-import {
-  ifElse,
-  isFunction,
-  filter,
-  compose
-} from '1-liners';
+const ifElse = require('1-liners/ifElse');
+const isFunction = require('1-liners/isFunction');
+const filter = require('1-liners/filter');
+const compose = require('1-liners/compose');
 
 const castBool = (val) => val === true;
 const throwError = (msg) => () => { throw new Error(msg); };
