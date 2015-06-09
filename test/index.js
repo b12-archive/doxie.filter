@@ -3,8 +3,11 @@ import filter from '../module/index';
 const test = require('tape-catch');
 const always = require('1-liners/always');
 const property = require('1-liners/curry')(require('1-liners/property'));
+const title = require('1-liners/curry')(require('1-liners/plus'))(
+  'Programmatic API:  '
+);
 
-test('Programmatic API:  Pipes data through', (is) => {
+test(title('Pipes data through'), (is) => {
   const input = [
     {dummyData: true},
     {dummyData: false},
@@ -37,7 +40,7 @@ test('Programmatic API:  Pipes data through', (is) => {
   is.end();
 });
 
-test('Programmatic API:  Fails with informative messages', (is) => {
+test(title('Fails with informative messages'), (is) => {
   is.throws(
     () => filter(/something wrong/),
     /expected a function/i,
