@@ -27,16 +27,24 @@ A plugin for [*doxie*][].
 
 
 
-<p align="center"><a
+<p><a
   title="Graphic by the great Justin Mezzell"
   href="http://justinmezzell.tumblr.com/post/66281274442"
   >
+  <br/>
+  <br/>
+  <br/>
+  <br/>
   <img
     alt="lightweight"
     src="Readme/Filter.gif"
     width="400"
     height="300"
   />
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 </a></p>
 
 
