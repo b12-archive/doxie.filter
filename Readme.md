@@ -20,10 +20,10 @@
 doxie.filter
 ============
 
-A plugin for [*doxie*][].  
+A plugin for *[doxie][]*.  
 **Filter comments through a custom function.**
 
-[*doxie*]:  https://github.com/studio-b12/doxie
+[doxie]:  https://github.com/studio-b12/doxie
 
 
 
