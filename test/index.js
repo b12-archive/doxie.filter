@@ -1,3 +1,5 @@
+import dummyData from './test-tools/dummyData';
+
 import filter from '../module/index';
 
 const test = require('tape-catch');
@@ -8,10 +10,10 @@ const title = require('1-liners/curry')(require('1-liners/plus'))(
 );
 
 test(title('Pipes data through'), (is) => {
-  const input = [
-    {dummyData: true},
-    {dummyData: false},
-  ];
+  const input = dummyData([
+    {dummyProperty: true},
+    {dummyProperty: false},
+  ]);
 
   is.deepEqual(
     filter(always(true))(input),
@@ -21,13 +23,13 @@ test(title('Pipes data through'), (is) => {
 
   is.deepEqual(
     filter(always(false))(input),
-    [],
+    dummyData([]),
     'dropping comments transformed into `false`'
   );
 
   is.deepEqual(
-    filter(property('dummyData'))(input),
-    [{dummyData: true}],
+    filter(property('dummyProperty'))(input),
+    dummyData([{dummyProperty: true}]),
     'doing both things at the same time'
   );
 
