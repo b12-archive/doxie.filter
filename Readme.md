@@ -56,7 +56,7 @@ A plugin for *[doxie][]*.
 CLI Usage
 ---------
 
-`--filter` is a plugin for the command-line tool *[doxie][]*. Most plugins are designed for *[dox][]* data. Install all three if you haven’t already:
+`doxie --filter` is a plugin for the command-line tool *[doxie][]*. Most plugins are designed for *[dox][]* data. Install all three if you haven’t already:
 
 ```sh
 $ npm install --global dox doxie doxie.filter
@@ -101,7 +101,7 @@ const filter = require('doxie.filter');
 const myDoxData = {/* … */};
 
 doxie([
-  filter(({chunk}) => !chunk.isPrivate),
+  filter(({data}) => (!data || !data.isPrivate)),
 ])(myDoxData);
 ```
 
