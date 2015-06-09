@@ -133,10 +133,15 @@ module.exports = function(chunk) {return (
 ```
 
 
-<h3                                        id="/filter-function/signature"><pre>
+
+<h5                                             id="/filter-function/signature">
+Signature:
+</h5>
+
+<pre>
 filterFunction({[data], [output]})
   → keep?
-</pre></h3>
+</pre>
 
 
 <h5                                                 id="/filter-function/input">
