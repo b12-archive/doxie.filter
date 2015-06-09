@@ -17,13 +17,16 @@
 
 
 
-doxie.filter
-============
+<h1                                                                 id="/"><pre>
+doxie --filter
+</pre></h1>
+
 
 A plugin for *[doxie][]*.  
 **Filter comments through a custom function.**
 
-[doxie]:  https://github.com/studio-b12/doxie
+
+[doxie]:  http://npm.im/doxie
 
 
 
@@ -50,30 +53,32 @@ A plugin for *[doxie][]*.
 
 
 
-Installation
-------------
-
-```sh
-$ npm install doxie doxie.filter
-```
-
-
-
-
 CLI Usage
 ---------
 
-Pass the option `--filter` to `doxie` to put the plugin in your pipeline. By default it will import the [transform function][] from `$(pwd)/.doxie.filter.js` to pipe data through:
+`--filter` is a plugin for the command-line tool *[doxie][]*. Most plugins are designed for *[dox][]* data. Install all three if you haven’t already:
+
+```sh
+$ npm install --global dox doxie doxie.filter
+```
+
+
+Pass the option `--filter` to *doxie* to put the plugin in your pipeline. By default it will import the [filter function][] from `<pwd>/.doxie.filter.js` and pipe your data through it:
 
 ```sh
 $ dox | doxie --filter
 ```
 
-You can also specify a custom file from which the [transform function][] should be imported:
+
+You can also specify a custom file to import the [filter function][] from:
 
 ```sh
 $ dox | doxie --filter ./build/my-custom-filter.js
 ```
+
+
+[dox]:              http://npm.im/dox
+[filter function]:  #/filter-function
 
 
 
@@ -81,7 +86,14 @@ $ dox | doxie --filter ./build/my-custom-filter.js
 Programmatic usage
 ------------------
 
-Pass the [transform function][] directly as a parameter:
+`doxie.filter` can be used directly with *[doxie-core][]* – the backend of *[doxie][]*. Install both if you haven’t already:
+
+```sh
+$ npm install doxie-core doxie.filter
+```
+
+
+Pass the [filter function][] directly as a parameter:
 
 ```js
 const doxie = require('doxie-core');
@@ -94,15 +106,16 @@ doxie([
 ```
 
 
+[doxie-core]:  http://npm.im/doxie-core
 
 
-[transform function]:  #transform-function
 
-<a                                                  id="transform-function"></a>
-The transform function
-----------------------
 
-*Work in progress…*
+<a                                                    id="/filter-function"></a>
+The filter function
+-------------------
+
+…
 
 
 
