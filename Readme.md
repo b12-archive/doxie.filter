@@ -115,7 +115,50 @@ doxie([
 The filter function
 -------------------
 
-…
+Put the file `.doxie.filter.js` in the root directory of your project and export a single function from it. Every documentation chunk will be piped through your filter function. If it returns a truthy value, the chunk will be kept. Otherwise it won’t be passed down the plugin pipeline.
+
+Here’s a drop-in example written in ES5:
+
+```js
+// `/.doxie.filter.js`
+
+module.exports = function(chunk) {return (
+  // Keep the chunk if it has no associated data (comes from a plugin, not from
+  // a comment)
+  !chunk.data ||
+
+  // Or if *dox* hasn’t marked it as private.
+  !chunk.data.isPrivate
+);};
+```
+
+
+<h3                                        id="/filter-function/signature"><pre>
+filterFunction({[data], [output]})
+  → keep?
+</pre></h3>
+
+
+<h5                                                 id="/filter-function/input">
+Input properties:
+</h5>
+
+* **`[data]`**
+  <sup>{*}</sup>  
+  The data associated with a documentation chunk. If the chunk corresponds to a *[dox][]* comment, this will be the output from *[dox][]*.
+
+* **`[output]`**
+  <sup>{String}</sup>  
+  The rendered text output for a chunk.
+
+
+<h5                                          id="/filter-function/return-value">
+Return value:
+</h5>
+
+* **`keep?`**
+  <sup>{Boolean}</sup>  
+  If falsy, the chunk won’t be passed down the plugin pipeline.
 
 
 
