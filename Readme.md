@@ -89,7 +89,7 @@ const filter = require('doxie.filter');
 const myDoxData = {/* … */};
 
 doxie([
-  filter(({data}) => !data.isPrivate),
+  filter(({chunk}) => !chunk.isPrivate),
 ])(myDoxData);
 ```
 
