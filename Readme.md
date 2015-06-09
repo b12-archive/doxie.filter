@@ -149,7 +149,7 @@ Input properties:
 </h5>
 
 * **`[data]`**
-  <sup>{*}</sup>  
+  <sup>{&ast;}</sup>  
   The data associated with a documentation chunk. If the chunk corresponds to a *[dox][]* comment, this will be the output from *[dox][]*.
 
 * **`[output]`**
