@@ -1,1 +1,1 @@
-module.exports = (block) => block.location === '.doxie.filter.js';
+module.exports = (block) => block.data.location === '.doxie.filter.js';

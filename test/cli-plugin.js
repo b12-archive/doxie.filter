@@ -8,11 +8,12 @@ const title = require('1-liners/curry')(require('1-liners/plus'))(
 );
 
 // Override `process.cwd()` for testing.
-console.log(process.cwd());
 const originalCwd = process.cwd;
-process.cwd = () => path.resolve(__dirname, 'cwd');
+const mockCwd = () => path.resolve(__dirname, 'cwd');
 
 test(title('Locates the right files'), (is) => {
+  process.cwd = mockCwd;
+
   const mock = [
     {data: {location: 'somewhere else'}},
     {data: {location: '.doxie.filter.js'}},
@@ -43,10 +44,13 @@ test(title('Locates the right files'), (is) => {
     'Locates `../cwd/myFilter.js`.'
   );
 
+  process.cwd = originalCwd;
   is.end();
 });
 
 test(title('Fails gracefully'), (is) => {
+  process.cwd = mockCwd;
+
   is.throws(
     () => cli('nonExistent.js'),
     'Throws an error when given a non-existent file.'
@@ -57,7 +61,6 @@ test(title('Fails gracefully'), (is) => {
     'Throws an error when given an invalid JS file.'
   );
 
+  process.cwd = originalCwd;
   is.end();
 });
-
-process.cwd = originalCwd;

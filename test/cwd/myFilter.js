@@ -1,1 +1,1 @@
-module.exports = (block) => block.location === 'myFilter.js';
+module.exports = (block) => block.data.location === 'myFilter.js';
