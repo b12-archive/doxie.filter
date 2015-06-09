@@ -1,1 +1,1 @@
-module.exports = (block) => block.data.location === 'myFilter.js';
+module.exports = (chunk) => chunk.data.location === 'myFilter.js';

@@ -1,3 +1,5 @@
+import dummyData from './test-tools/dummyData';
+
 import cli from '../module/cli-plugin';
 
 const path = require('path');
@@ -14,33 +16,33 @@ const mockCwd = () => path.resolve(__dirname, 'cwd');
 test(title('Locates the right files'), (is) => {
   process.cwd = mockCwd;
 
-  const mock = [
+  const mock = dummyData([
     {data: {location: 'somewhere else'}},
     {data: {location: '.doxie.filter.js'}},
     {data: {location: 'myFilter.js'}},
-  ];
+  ]);
 
   is.deepEqual(
     cli()(mock),
-    [{data: {location: '.doxie.filter.js'}}],
+    dummyData([{data: {location: '.doxie.filter.js'}}]),
     'Takes the function from `<cwd>/.doxie.filter.js` by default.'
   );
 
   is.deepEqual(
     cli('myFilter.js')(mock),
-    [{data: {location: 'myFilter.js'}}],
+    dummyData([{data: {location: 'myFilter.js'}}]),
     'Locates `myFilter.js`.'
   );
 
   is.deepEqual(
     cli('./myFilter.js')(mock),
-    [{data: {location: 'myFilter.js'}}],
+    dummyData([{data: {location: 'myFilter.js'}}]),
     'Locates `./myFilter.js`.'
   );
 
   is.deepEqual(
     cli('../cwd/myFilter.js')(mock),
-    [{data: {location: 'myFilter.js'}}],
+    dummyData([{data: {location: 'myFilter.js'}}]),
     'Locates `../cwd/myFilter.js`.'
   );
 
