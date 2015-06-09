@@ -29,7 +29,7 @@ A plugin for [*doxie*][].
 
 <p><a
   title="Graphic by the great Justin Mezzell"
-  href="http://justinmezzell.tumblr.com/post/66281274442"
+  href="http://justinmezzell.tumblr.com/post/57086283476"
   >
   <br/>
   <br/>
