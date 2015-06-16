@@ -4,6 +4,7 @@
 
 , "dependencies":
   { "1-liners": "^0.2.10"
+  , "chalk": "^1.0.0"
   , "tiny-error": "^0.2.1"
   }
 
@@ -16,7 +17,7 @@
   , "test": "jshint . && npm run test:transpile && node .es5/test.js | tap-spec"
   , "test:transpile": "babel --out-dir .es5 *.js test/*.js test/*/.*.js test/*/*.js module/*.js && cp test/cwd/badlyFormed.file .es5/test/cwd"
   , "test:lite": "babel-node test.js | tap-spec"
-  , "transpile": "cd module && babel --out-dir ../ *.js"
+  , "transpile": "cd module && babel --out-dir ../ *.js */*.js"
   , "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && xdg-open ./coverage/lcov-report/index.html >/dev/null"
   }
 
