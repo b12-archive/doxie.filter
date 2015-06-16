@@ -18,5 +18,10 @@ export default (source = '.doxie.filter.js') => {
     error
   );}
 
+  if (typeof filterFunction !== 'function') throw filterError(
+    `Invalid filter function. The file \`${modulePath}\` should export a ` +
+    'function.'
+  );
+
   return filter(filterFunction);
 };
