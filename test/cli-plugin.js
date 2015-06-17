@@ -55,12 +55,20 @@ test(title('Fails gracefully'), (is) => {
 
   is.throws(
     () => cli('nonExistent.js'),
-    'Throws an error when given a non-existent file.'
+    /no filter function found/i,
+    'Throws a helpful error when given a non-existent file.'
   );
 
   is.throws(
-    () => cli('badlyFormed.js'),
-    'Throws an error when given an invalid JS file.'
+    () => cli('notAFunction.js'),
+    /invalid filter function/i,
+    'Throws a helpful error when given a non-function module.'
+  );
+
+  is.throws(
+    () => cli('badlyFormed.file'),
+    SyntaxError,
+    'Throws a SyntaxError when given an invalid JS file.'
   );
 
   process.cwd = originalCwd;
