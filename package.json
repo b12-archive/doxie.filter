@@ -3,7 +3,7 @@
 , "description": "A plugin for doxie. Filter comments through a custom function."
 
 , "dependencies":
-  { "1-liners": "^0.2.10"
+  { "1-liners": "^0.3.0"
   , "chalk": "^1.0.0"
   , "tiny-error": "^0.2.1"
   }
