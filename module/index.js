@@ -9,13 +9,13 @@ export default (filterFunction) => {
   );
 
   return (input = {}) => {
-    let {version, chunks} = input;
-    if (!Array.isArray(chunks = input.chunks)) throw error(
-      'Wrong value of `input.chunks`. We expected an array.'
+    let {version, docs} = input;
+    if (!Array.isArray(docs = input.docs)) throw error(
+      'Wrong value of `input.docs`. We expected an array.'
     );
 
     return {
-      chunks: filter(filterFunction, chunks),
+      docs: filter(filterFunction, docs),
       version
     };
   };

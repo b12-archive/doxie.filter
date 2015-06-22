@@ -67,7 +67,7 @@ $ npm install --global dox doxie doxie.filter
 ```
 
 
-Pass the option `--filter` to *doxie* to put the plugin in your pipeline. By default it will import the [filter function][] from `<pwd>/.doxie.filter.js` and pipe your data through it:
+Pass the option `--filter` to *doxie* to put the plugin in your pipeline. By default it will import the [filter function][] from `<pwd>/.doxie.filter.js` and pipe your docs through it:
 
 ```sh
 $ dox | doxie --filter
@@ -119,20 +119,20 @@ doxie([
 The filter function
 -------------------
 
-Put the file `.doxie.filter.js` in the root directory of your project and export a single function from it. Every documentation chunk will be piped through your filter function. If it returns a truthy value, the chunk will be kept. Otherwise it won’t be passed down the plugin pipeline.
+Put the file `.doxie.filter.js` in the root directory of your project and export a single function from it. Every doc will be piped through your filter function. If it returns a truthy value, the doc will be kept. Otherwise it won’t be passed down the plugin pipeline.
 
 Here’s a drop-in example written in ES5:
 
 ```js
 // `/.doxie.filter.js`
 
-module.exports = function(chunk) {return (
-  // Keep the chunk if it has no associated data (comes from a plugin, not from
+module.exports = function(doc) {return (
+  // Keep the doc if it has no associated data (comes from a plugin, not from
   // a comment)
-  !chunk.data ||
+  !doc.data ||
 
   // Or if *dox* hasn’t marked it as private.
-  !chunk.data.isPrivate
+  !doc.data.isPrivate
 );};
 ```
 
@@ -154,11 +154,11 @@ Input properties:
 
 * **`[data]`**
   <sup>{&ast;}</sup>  
-  The data associated with a documentation chunk. If the chunk corresponds to a *[dox][]* comment, this will be the output from *[dox][]*.
+  The data associated with a doc. If the doc corresponds comes from a *[dox][]* comment, this will be the output from *[dox][]*.
 
 * **`[output]`**
   <sup>{String}</sup>  
-  The rendered text output for a chunk.
+  The rendered text output for a doc.
 
 
 <h5                                          id="/filter-function/return-value">
@@ -167,7 +167,7 @@ Return value:
 
 * **`keep?`**
   <sup>{Boolean}</sup>  
-  If falsy, the chunk won’t be passed down the plugin pipeline.
+  If falsy, the doc won’t be passed down the plugin pipeline.
 
 
 
