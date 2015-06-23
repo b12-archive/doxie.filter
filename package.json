@@ -1,5 +1,5 @@
 { "name": "doxie.filter"
-, "version": "0.4.0"
+, "version": "0.4.1"
 , "description": "A plugin for doxie. Filter comments through a custom function."
 
 , "dependencies":
